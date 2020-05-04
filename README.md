@@ -19,7 +19,7 @@ Looks up a DOI and returns JSON containing available author-accepted manuscripts
 GET http://<HOSTNAME>:<PORT>/lookup?doi=<DOI>
 ```
 
-Example: `curl http://localhost:6502/download?doi=10.1038%2Fnature12373`
+Example: `curl http://localhost:6502/lookup?doi=10.1038%2Fnature12373`
 
 Returns:
 ```
