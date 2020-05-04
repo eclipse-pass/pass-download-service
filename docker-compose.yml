@@ -5,7 +5,7 @@ services:
   download-service:
     build: .
     container_name: download-service
-    image: oa-pass/download-service:latest
+    image: oapass/download-service:latest
     env_file: .env
     ports:
       - "${DOWNLOAD_SERVICE_PORT}:${DOWNLOAD_SERVICE_PORT}"
