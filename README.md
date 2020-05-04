@@ -19,7 +19,7 @@ Looks up a DOI and returns JSON containing available author-accepted manuscripts
 GET http://<HOSTNAME>:<PORT>/lookup?doi=<DOI>
 ```
 
-Example: `curl [http://localhost:6502/download?doi=10.1038%2Fnature12373](http://localhost:6502/download?doi=10.1038%2Fnature12373)`
+Example: `curl http://localhost:6502/download?doi=10.1038%2Fnature12373`
 
 Returns:
 ```
@@ -38,7 +38,7 @@ Given a DOI and a manuscript URL (from a previous lookup), will download the man
 return the URL of the Fedora object containing the downloaded binary.  Its up to the client to later on create a PASS `File` entity that
 points to the resulting Fedora URL as content.
 
-If the URL does not match any URLs from the corresponding lookup query, the request will fail with a "bad request" error code.
+If the URL does not match any URLs from a corresponding lookup query for the given DOI, the request will fail with a "bad request" error code.
 
 The response body and `Location` header will contain the Fedora binary URL
 
@@ -48,7 +48,7 @@ POST  http://<HOSTNAME>:<PORT>/lookup?doi=<DOI>&url=<URL>
 ```
 
 Example:
-`curl -X POST [http://localhost:6502/download?doi=10.1038%2Fnature12373&url=http%3A%2F%2Feuropepmc.org%2Farticles%2Fpmc4221854%3Fpdf%3Drender](http://localhost:6502/download?doi=10.1038%2Fnature12373&url=http%3A%2F%2Feuropepmc.org%2Farticles%2Fpmc4221854%3Fpdf%3Drender)`
+`curl -X POST `http://localhost:6502/download?doi=10.1038%2Fnature12373&url=http%3A%2F%2Feuropepmc.org%2Farticles%2Fpmc4221854%3Fpdf%3Drender`
 
 Result:
 ``

@@ -52,8 +52,6 @@ func (u UnpaywallService) Lookup(doi string) (*DoiInfo, error) {
 			}
 		}
 
-		fmt.Printf("Returning: %v\n", doiResponse)
-
 		return &doiResponse, nil
 	}
 
