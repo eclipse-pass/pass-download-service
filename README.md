@@ -69,3 +69,21 @@ Environment variables are as follows:
 * `PASS_FEDORA_BASEURL` - Internal Fedora Baseurl
 * `$PASS_FEDORA_USER` - Fedora username
 * `$PASS_FEDORA_PASSWORD` - Fedora password
+
+## Developer notes
+
+To run integration tests manually, do:
+
+```
+docker-compose up -d
+
+# wait until Fedora starts
+
+go test -tags=integration ./...
+```
+
+To build an image for local testing (e.g. with Ember), just do `docker-compose build`.  The resulting image is ` oa-pass/pass-download-service:latest`
+
+After pushing to github master, a new image will be published to [dockerhub](https://hub.docker.com/repository/docker/oapass/download-service/tags) with a unique tag name.  Go look go for it a couple minutes after pushing.
+
+Upon creating a tag (e.g. via github releases), a Docker image will also be published and tagged after the tag name
