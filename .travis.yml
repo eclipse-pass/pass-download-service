@@ -1,0 +1,18 @@
+language: go
+
+go:
+  - 1.14.x
+
+os: 
+  - linux
+
+services:
+  - docker
+
+install: true
+
+script:
+  - docker-compose build download-service
+  - docker-compose pull fcrepo && docker-compose up -d && bash ./scripts/wait_for_docker.sh
+  - go test -v -tags=integration ./... || (docker logs download-service && exit 1) 
+  - 'if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ ! -z ${DOCKER_USERNAME+x} ]; then sh ./scripts/docker-push.sh; fi'
