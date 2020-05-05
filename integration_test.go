@@ -28,7 +28,9 @@ func TestIntegration(t *testing.T) {
 
 	downloadURL := info.Manuscripts[0].Location
 
-	binaryURI := postBinary(t, doi, fmt.Sprintf("%s?doi=%s&url=%s", downloadEndpoint, url.QueryEscape(doi), url.QueryEscape(downloadURL)))
+	binaryURI := postBinary(t, doi, fmt.Sprintf("%s?doi=%s&url=%s", downloadEndpoint, url.QueryEscape(doi), downloadURL))
+
+	println(binaryURI)
 
 	// Now, make sure we can HEAD the created binary
 	headRequest, _ := http.NewRequest(http.MethodHead, binaryURI, nil)
@@ -38,11 +40,11 @@ func TestIntegration(t *testing.T) {
 		t.Fatalf("HEAD of resulting binary failed: %v", err)
 	}
 
-	if resp.Header.Get("Content-Type") != "application/pdf" {
+	if resp.Header.Get("Content-Type") != "application/pdf;charset=ISO-8859-1" {
 		t.Fatalf("Got wrong content type for PDF!")
 	}
 
-	if resp.Header.Get("Content-Length") != "710000" {
+	if resp.Header.Get("Content-Length") != "1024793" {
 		t.Fatalf("Didn't get expected content length for pdf file")
 	}
 }
