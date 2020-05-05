@@ -17,8 +17,8 @@ func TestSimpleCase(t *testing.T) {
 	expected := &pass.DoiInfo{
 		Manuscripts: []pass.Manuscript{
 			{
-				Description: "Foo",
-				Location:    "Bar",
+				RepositoryInstitution: "Foo",
+				Location:              "Bar",
 			},
 		},
 	}
@@ -27,8 +27,8 @@ func TestSimpleCase(t *testing.T) {
 		return &pass.DoiInfo{
 			Manuscripts: []pass.Manuscript{
 				{
-					Description: "Foo",
-					Location:    "Bar",
+					RepositoryInstitution: "Foo",
+					Location:              "Bar",
 				},
 			},
 		}, nil
@@ -83,8 +83,8 @@ func TestContested(t *testing.T) {
 	expected := &pass.DoiInfo{
 		Manuscripts: []pass.Manuscript{
 			{
-				Description: "Foo",
-				Location:    "Bar",
+				RepositoryInstitution: "Foo",
+				Location:              "Bar",
 			},
 		},
 	}
@@ -98,8 +98,8 @@ func TestContested(t *testing.T) {
 			return &pass.DoiInfo{
 				Manuscripts: []pass.Manuscript{
 					{
-						Description: "Foo",
-						Location:    "Bar",
+						RepositoryInstitution: "Foo",
+						Location:              "Bar",
 					},
 				},
 			}, nil
@@ -177,8 +177,8 @@ func didCompute(cache *pass.DoiCache, doi string) bool {
 		return &pass.DoiInfo{
 			Manuscripts: []pass.Manuscript{
 				{
-					Description: "Foo",
-					Location:    "Bar",
+					RepositoryInstitution: "Foo",
+					Location:              "Bar",
 				},
 			},
 		}, nil

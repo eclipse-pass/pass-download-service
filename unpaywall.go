@@ -3,11 +3,10 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
-)
-
-const (
-	unpaywallAcceptedVersion = "acceptedVersion"
+	"net/url"
+	"strings"
 )
 
 // UnpaywallService looks up DOI info from unpaywall
@@ -20,13 +19,13 @@ type UnpaywallService struct {
 
 // DOI lookup response from unpaywall
 type unpaywallDOIResponse struct {
-	OaLocations []unpaywallLocation `json:"oa_locations"`
+	BestOaLocation unpaywallLocation `json:"best_oa_location"`
 }
 
 type unpaywallLocation struct {
-	URLForPdf string `json:"url_for_pdf"`
-	Version   string `json:"version"`
-	Evidence  string `json:"evidence"`
+	URLForPdf             string `json:"url_for_pdf"`
+	Version               string `json:"version"`
+	RepositoryInstitution string `json:"repository_institution"`
 }
 
 // Lookup looks up DOI info for a given DOI
@@ -42,14 +41,28 @@ func (u UnpaywallService) Lookup(doi string) (*DoiInfo, error) {
 
 		var doiResponse DoiInfo
 
-		// Just return the all accepted versions we encounter?  dunno
-		for _, location := range results.OaLocations {
-			if location.Version == unpaywallAcceptedVersion && location.URLForPdf != "" {
-				doiResponse.Manuscripts = append(doiResponse.Manuscripts, Manuscript{
-					Description: location.Evidence,
-					Location:    location.URLForPdf,
-				})
-			}
+		// For now we'll only return the best location for the manuscript
+		location := results.BestOaLocation
+
+		// Get the file name from the decoded url for pdf
+		// but log any problems do not cause response to fail
+		var fileName string
+		decodedURLForPdf, err := url.QueryUnescape(location.URLForPdf)
+		if err != nil {
+			log.Printf("file name decoding failed: %s", err)
+		} else {
+			splitURLForPdf := strings.Split(decodedURLForPdf, "/")
+			fileName = splitURLForPdf[len(splitURLForPdf)-1]
+		}
+
+		if location.URLForPdf != "" {
+			doiResponse.Manuscripts = append(doiResponse.Manuscripts, Manuscript{
+				Location:              location.URLForPdf,
+				RepositoryInstitution: location.RepositoryInstitution,
+				Type:                  "application/pdf",
+				Source:                "Unpaywall",
+				Name:                  fileName,
+			})
 		}
 
 		return &doiResponse, nil

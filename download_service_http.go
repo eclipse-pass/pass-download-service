@@ -13,7 +13,6 @@ type Downloader interface {
 func DownloadServiceHandler(svc Downloader) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 
-		// Allowing GET just so I can test in browser quickly
 		if r.Method != http.MethodPost {
 			w.WriteHeader(http.StatusMethodNotAllowed)
 			return
@@ -36,8 +35,8 @@ func DownloadServiceHandler(svc Downloader) http.Handler {
 
 		downloadLocation, err := svc.Download(doi, uri)
 		if err != nil {
-			var badReqest ErrorBadInput
-			if errors.As(err, &badReqest) {
+			var badRequest ErrorBadInput
+			if errors.As(err, &badRequest) {
 				w.WriteHeader(http.StatusBadRequest)
 			} else {
 				w.WriteHeader(http.StatusInternalServerError)

@@ -19,8 +19,11 @@ func TestUnpaywall(t *testing.T) {
 	expected := &pass.DoiInfo{
 		Manuscripts: []pass.Manuscript{
 			{
-				Description: "oa repository (via OAI-PMH doi match)",
-				Location:    "http://europepmc.org/articles/pmc4221854?pdf=render",
+				Location:              "https://dash.harvard.edu/bitstream/1/12285462/1/Nanometer-Scale%20Thermometry.pdf",
+				RepositoryInstitution: "Harvard University - Digital Access to Scholarship at Harvard (DASH)",
+				Type:                  "application/pdf",
+				Source:                "Unpaywall",
+				Name:                  "Nanometer-Scale Thermometry.pdf",
 			},
 		},
 	}
