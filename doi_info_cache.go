@@ -82,7 +82,7 @@ func (c *DoiCache) GetOrAdd(doi string, fetchDoi func() (*DoiInfo, error)) (*Doi
 		return cached, err
 	}
 
-	// OK, now execute the doi getch function and unlock the cache entry when done.
+	// OK, now execute the doi fetch function and unlock the cache entry when done.
 	defer entry.Unlock()
 
 	if entry.info, err = fetchDoi(); err != nil {

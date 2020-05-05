@@ -41,13 +41,12 @@ func (d DownloadService) Download(doi, url string) (string, error) {
 
 	defer resp.Body.Close()
 
-	if resp.StatusCode > 299 {
+	if resp.StatusCode > 303 {
 		body, _ := ioutil.ReadAll(resp.Body)
 		return "", errors.Errorf("download of '%s' faied with %d %s", url, resp.StatusCode, string(body))
 	}
 
 	return d.Fedora.PostBinary(d.Dest, resp.Body, resp.Header.Get(headerContentType))
-
 }
 
 func (d DownloadService) verifyURL(doi string, info *DoiInfo, url string) error {

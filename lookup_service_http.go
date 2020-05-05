@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-// LookupService looks up a DOI and provides information addociated with it
+// LookupService looks up a DOI and provides information associated with it
 type LookupService interface {
 	Lookup(doi string) (*DoiInfo, error)
 }

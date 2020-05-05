@@ -9,6 +9,9 @@ type DoiInfo struct {
 // Manuscript describes an open access manuscript that can be
 // selected by the user.
 type Manuscript struct {
-	Description string `json:"description"` // Description of this manuscript
-	Location    string `json:"location"`    // Location URI of manuascript (e.g. pdf)
+	Location              string `json:"url"`             // Location URI of manuascript (e.g. pdf)
+	RepositoryInstitution string `json:"repositoryLabel"` // Readable label for the repository where the article can be found
+	Type                  string `json:"type"`            // The MIME type of the manuscript file
+	Source                string `json:"source"`          // The API where we found the file
+	Name                  string `json:"name"`            // The file name
 }

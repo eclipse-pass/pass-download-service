@@ -39,7 +39,7 @@ func TestNoDoi(t *testing.T) {
 
 	resp := httptest.NewRecorder()
 	pass.LookupServiceHandler(NoLookupService{}).ServeHTTP(
-		resp, httptest.NewRequest(http.MethodGet, "/foo?param=notDoi", nil))
+		resp, httptest.NewRequest(http.MethodGet, "/lookup?param=notDoi", nil))
 
 	if resp.Code != http.StatusBadRequest {
 		t.Errorf("Expected bad request error code")
@@ -51,12 +51,18 @@ func TestResponse(t *testing.T) {
 	info := &pass.DoiInfo{
 		Manuscripts: []pass.Manuscript{
 			{
-				Description: "One",
-				Location:    "http://example.org/first",
+				RepositoryInstitution: "One",
+				Location:              "http://example.org/first",
+				Type:                  "application/pdf",
+				Source:                "Unpaywall",
+				Name:                  "first",
 			},
 			{
-				Description: "Two",
-				Location:    "http://example.org/second",
+				RepositoryInstitution: "Two",
+				Location:              "http://example.org/second",
+				Type:                  "application/pdf",
+				Source:                "Unpaywall",
+				Name:                  "second",
 			},
 		},
 	}
