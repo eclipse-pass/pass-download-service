@@ -25,6 +25,20 @@ func TestUnpaywall(t *testing.T) {
 				Source:                "Unpaywall",
 				Name:                  "Nanometer-Scale Thermometry.pdf",
 			},
+			{
+				Location:              "http://europepmc.org/articles/pmc4221854?pdf=render",
+				RepositoryInstitution: "pubmedcentral.nih.gov",
+				Type:                  "application/pdf",
+				Source:                "Unpaywall",
+				Name:                  "pmc4221854?pdf=render",
+			},
+			{
+				Location:              "http://arxiv.org/pdf/1304.1068",
+				RepositoryInstitution: "arXiv.org",
+				Type:                  "application/pdf",
+				Source:                "Unpaywall",
+				Name:                  "1304.1068",
+			},
 		},
 	}
 
