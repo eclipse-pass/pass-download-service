@@ -19,7 +19,7 @@ type UnpaywallService struct {
 
 // DOI lookup response from unpaywall
 type unpaywallDOIResponse struct {
-	BestOaLocation unpaywallLocation `json:"best_oa_location"`
+	OaLocations []unpaywallLocation `json:"oa_locations"`
 }
 
 type unpaywallLocation struct {
@@ -41,28 +41,28 @@ func (u UnpaywallService) Lookup(doi string) (*DoiInfo, error) {
 
 		var doiResponse DoiInfo
 
-		// For now we'll only return the best location for the manuscript
-		location := results.BestOaLocation
+		for _, location := range results.OaLocations {
+			if location.URLForPdf != "" {
 
-		// Get the file name from the decoded url for pdf
-		// but log any problems do not cause response to fail
-		var fileName string
-		decodedURLForPdf, err := url.QueryUnescape(location.URLForPdf)
-		if err != nil {
-			log.Printf("file name decoding failed: %s", err)
-		} else {
-			splitURLForPdf := strings.Split(decodedURLForPdf, "/")
-			fileName = splitURLForPdf[len(splitURLForPdf)-1]
-		}
+				// Get the file name from the decoded url for pdf
+				// but log any problems do not cause response to fail
+				var fileName string
+				decodedURLForPdf, err := url.QueryUnescape(location.URLForPdf)
+				if err != nil {
+					log.Printf("file name decoding failed: %s", err)
+				} else {
+					splitURLForPdf := strings.Split(decodedURLForPdf, "/")
+					fileName = splitURLForPdf[len(splitURLForPdf)-1]
+				}
 
-		if location.URLForPdf != "" {
-			doiResponse.Manuscripts = append(doiResponse.Manuscripts, Manuscript{
-				Location:              location.URLForPdf,
-				RepositoryInstitution: location.RepositoryInstitution,
-				Type:                  "application/pdf",
-				Source:                "Unpaywall",
-				Name:                  fileName,
-			})
+				doiResponse.Manuscripts = append(doiResponse.Manuscripts, Manuscript{
+					Location:              location.URLForPdf,
+					RepositoryInstitution: location.RepositoryInstitution,
+					Type:                  "application/pdf",
+					Source:                "Unpaywall",
+					Name:                  fileName,
+				})
+			}
 		}
 
 		return &doiResponse, nil
