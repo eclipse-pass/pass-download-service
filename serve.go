@@ -21,6 +21,7 @@ type serveOpts struct {
 	fedoraBaseURI       string
 	fedoraUsername      string
 	fedoraPassword      string
+	maxredirects        int
 }
 
 func serve() *cli.Command {
@@ -85,6 +86,13 @@ func serve() *cli.Command {
 				Destination: &opts.fedoraPassword,
 				EnvVars:     []string{"PASS_FEDORA_PASSWORD"},
 			},
+			&cli.IntFlag{
+				Name:        "download.maxredirects",
+				Usage:       "Sets the maximum number of redirects when downloading a file (default: '10')",
+				EnvVars:     []string{"DOWNLOAD_SERVICE_MAXREDIRECTS"},
+				Destination: &opts.maxredirects,
+				Value:       10,
+			},
 		},
 		Action: func(c *cli.Context) error {
 			return serveAction(opts)
@@ -96,6 +104,14 @@ func serveAction(opts serveOpts) error {
 
 	httpClient := &http.Client{
 		Timeout: 20 * time.Second,
+		CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			if len(via) >= opts.maxredirects {
+				return fmt.Errorf("serve: maximum number of redirects reached (%v) for %v",
+					opts.maxredirects, req.URL.String())
+			}
+
+			return nil
+		},
 	}
 
 	var fedoraCredentials *Credentials
