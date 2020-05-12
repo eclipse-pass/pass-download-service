@@ -62,6 +62,7 @@ For cli flags, see `pass-download-service help`
 Environment variables are as follows:
 
 * `DOWNLOAD_SERVICE_PORT` - Port to serve the download service on (default `6502`)
+* `DOWNLOAD_SERVICE_MAXREDIRECTS` - sets the maximum number of redirects when downloading a file (default `10`)
 * `DOWNLOAD_SERVICE_DEST` - Fedora container URI where binaries will be downloaded into
 * `UNPAYWALL_REQUEST_EMAIL` - E-mail address that will be sent with unpaywall requests
 * `UNPAYWALL_BASEURI` - BaseURL of the unpaywall service.
