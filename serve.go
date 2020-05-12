@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"net/http/cookiejar"
 	"os"
 	"os/signal"
 	"time"
@@ -102,6 +103,8 @@ func serve() *cli.Command {
 
 func serveAction(opts serveOpts) error {
 
+	jar, _ := cookiejar.New(nil)
+
 	httpClient := &http.Client{
 		Timeout: 20 * time.Second,
 		CheckRedirect: func(req *http.Request, via []*http.Request) error {
@@ -112,6 +115,7 @@ func serveAction(opts serveOpts) error {
 
 			return nil
 		},
+		Jar: jar,
 	}
 
 	var fedoraCredentials *Credentials
