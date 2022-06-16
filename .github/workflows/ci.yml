@@ -1,4 +1,4 @@
-name: pass-docker-services Continuous Integration
+name: pass-download-service Continuous Integration
 on: [ pull_request, workflow_dispatch ]
 
 concurrency:
@@ -12,10 +12,37 @@ jobs:
       - run: echo "This is a CI build of branch ${{ github.ref }} in repository ${{ github.repository }}"
       - run: echo "This job was triggered by a ${{ github.event_name }} event and is running on a ${{ runner.os }} server"
 
-  call-tests-unit:
-    name: Run Unit Tests
-    uses: eclipse-pass/pass-download-service/.github/workflows/tests-unit.yml@main
-    
-  call-tests-integration:
-    name: Run Integration Tests
-    uses: eclipse-pass/pass-download-service/.github/workflows/tests-integration.yml@main
+  run-unit-tests:
+    name: "Run Unit Tests"
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "No Unit Tests exist."
+
+  run-integration-tests:
+    name: "Run Integration Tests"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout the repository"
+        uses: actions/checkout@v2
+
+      - name: "Install Go"
+        uses: actions/setup-go@v3
+        with:
+          go-version: '>=1.17.0'
+
+      - name: "Docker pull"
+        run: docker-compose pull
+
+      - name: "Start containers"
+        run: docker-compose up -d
+
+      - name: "Sleep for 10 seconds"
+        run: sleep 10s
+        shell: bash
+
+      - name: "Run Integration Tests"
+        run: go test -tags=integration ./...
+
+      - name: "Stop containers"
+        if: always()
+        run: docker-compose -f "docker-compose.yml" down
