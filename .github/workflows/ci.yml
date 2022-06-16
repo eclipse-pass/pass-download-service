@@ -36,8 +36,8 @@ jobs:
       - name: "Start containers"
         run: docker-compose up -d
 
-      - name: "Sleep for 10 seconds"
-        run: sleep 10s
+      - name: "Sleep for 30 seconds"
+        run: sleep 30s
         shell: bash
 
       - name: "Run Integration Tests"
