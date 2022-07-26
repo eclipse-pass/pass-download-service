@@ -44,7 +44,7 @@ func TestIntegration(t *testing.T) {
 		t.Fatalf("Got wrong content type for PDF!")
 	}
 
-	if resp.Header.Get("Content-Length") != "1035596" {
+	if resp.Header.Get("Content-Length") != "1031677" {
 		t.Fatalf("Didn't get expected content length for pdf file")
 	}
 }

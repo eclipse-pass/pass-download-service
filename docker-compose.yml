@@ -11,7 +11,7 @@ services:
       - "${DOWNLOAD_SERVICE_PORT}:${DOWNLOAD_SERVICE_PORT}"
 
   fcrepo:
-    image: oapass/fcrepo:4.7.5-3.2-5@sha256:0bc8bcf2b4804c0c4ba11af2ad3f02ec5a24a442b6d50877148c212dc79c20d1
+    image: oapass/fcrepo:0.1.0@sha256:d667883f2ea3c9d4235a019be4c16f8796949d864e56490c57aa896bd672027f
     container_name: fcrepo
     env_file: .env
     ports:
