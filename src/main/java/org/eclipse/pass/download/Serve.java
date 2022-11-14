@@ -1,8 +1,18 @@
 package org.eclipse.pass.manuscript;
 
+/*
+ * Starts the web service with the user
+ * 
+ * @author Maggie Olaya
+ */
 
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-public class serve{
+@WebServlet("/downloadservice")
+public class serve extends HttpServlet{
     //list of command flags
     //call action
 
