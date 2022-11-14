@@ -1,10 +1,14 @@
 package org.eclipse.pass.manuscript;
 
+/*
+ * Verifies the doi and URL match
+ * Downloads into fedora and returns URL of binary
+ * 
+ * @author Maggie Olaya
+ */
 
 public class download_service{
 
-    //verifies the doi and URL match up
-    //downloads into fedora, returns URL of binary
     public Download(doi, uri){
         //calls unpaywall Lookup method, passes doi
 
