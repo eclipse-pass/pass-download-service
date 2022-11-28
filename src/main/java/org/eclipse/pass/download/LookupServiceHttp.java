@@ -2,6 +2,7 @@ package org.eclipse.pass.manuscript;
 
 /*
  * Looks up a doi and provides the information associated with it
+ * then creates a json file containing results
  * 
  * @author Maggie Olaya
  */
@@ -15,7 +16,12 @@ public class LookupServiceHttp{
 
     public lookupServiceHandler(unpaywall) {
         //gets doi
-        //calls unpaywall.Lookup, passes doi
 
+        createJson(unpaywall.lookup(doi))
+    }
+
+    //creates json file with manuscript info
+    private File createJson(Manuscript[] manuscripts){
+        //TODO: implement
     }
 }
