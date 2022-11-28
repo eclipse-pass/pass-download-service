@@ -1,6 +1,6 @@
 package org.eclipse.pass.manuscript;
 
-public class main(){
+public class Main(){
     
     public static void main(String[] args){
         //run(args)

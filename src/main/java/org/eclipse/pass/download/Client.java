@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class client{
+public class Client{
 
-    public PostBinary(){
+    public postBinary(){
         
     }
 }

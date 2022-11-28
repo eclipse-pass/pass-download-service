@@ -7,9 +7,9 @@ package org.eclipse.pass.manuscript;
  * @author Maggie Olaya
  */
 
-public class download_service{
+public class DownloadService{
 
-    public Download(doi, uri){
+    public download(doi, uri){
         //calls unpaywall Lookup method, passes doi
 
         //returns:
