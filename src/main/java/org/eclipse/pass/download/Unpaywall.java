@@ -1,7 +1,7 @@
 package org.eclipse.pass.manuscript;
 
 /*
- * Looks up DOI info from  unpaywall 
+ * Looks up DOI info from unpaywall 
  * 
  * @author Maggie Olaya
  */
@@ -10,17 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
-
 import java.net.URI;
 
-
-//looks up DOI info
 public class Unpaywall{
-    public Lookup(doi) {
-        //returns doiResponse, containing json w info about manuscript
+    public Lookup(String doi) {
+        Manuscript[] manuscripts;
+
+        //uses UnpaywallService to lookup doi, returns array of locations
+        //parse through results, creating new manuscript object and adding the info
+
+        return manuscripts;
     }
 }

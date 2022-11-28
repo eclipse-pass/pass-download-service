@@ -10,7 +10,9 @@ package org.eclipse.pass.manuscript;
 public class DownloadService{
 
     public download(doi, uri){
-        //calls unpaywall Lookup method, passes doi
+
+        Unpaywall unpaywall = new Unpaywall();
+        unpaywall.lookup(doi);
 
         //returns:
         //fedora object calls client.PostBinary
