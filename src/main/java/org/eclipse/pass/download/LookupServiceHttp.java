@@ -11,9 +11,9 @@ import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 
-public class lookup_service_http{
+public class LookupServiceHttp{
 
-    public LookupServiceHandler(unpaywall) {
+    public lookupServiceHandler(unpaywall) {
         //gets doi
         //calls unpaywall.Lookup, passes doi
 

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/downloadservice")
-public class serve extends HttpServlet{
+public class Serve extends HttpServlet{
     //list of command flags
     //call action
 

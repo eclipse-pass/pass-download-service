@@ -19,7 +19,7 @@ import java.net.URI;
 
 
 //looks up DOI info
-public class unpaywall{
+public class Unpaywall{
     public Lookup(doi) {
         //returns doiResponse, containing json w info about manuscript
     }
