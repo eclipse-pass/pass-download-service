@@ -22,7 +22,7 @@ public class LookupServlet extends HttpServlet{
         //sets up http, fedora
         
         Unpaywall unpaywall = new Unpaywall();
-        LookupServiceHttp lookupService = new LookupServiceHttp(unpaywall);
+        LookupServiceHttp lookupService = new LookupServiceHttp();
     }
 
     @Override
