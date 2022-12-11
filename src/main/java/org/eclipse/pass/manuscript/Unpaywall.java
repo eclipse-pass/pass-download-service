@@ -14,7 +14,7 @@ import java.net.URI;
 
 public class Unpaywall{
     public Manuscript[] lookup(String doi) {
-        Manuscript[] manuscripts;
+        Manuscript[] manuscripts = new Manuscript[5];
 
         //uses UnpaywallService to lookup doi, returns array of locations
         //parse through results, creating new manuscript object and adding the info
