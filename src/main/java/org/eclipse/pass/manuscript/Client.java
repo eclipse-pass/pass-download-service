@@ -5,14 +5,12 @@ package org.eclipse.pass.manuscript;
  * 
  * @author Maggie Olaya
  */
-
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 public class Client {
 
-  public void postBinary(){
-        
+  /**
+   * postBinary.
+   */
+  public void postBinary() {
+    //TODO: implement
   }
 }
