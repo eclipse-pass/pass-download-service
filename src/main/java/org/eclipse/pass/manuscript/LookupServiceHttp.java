@@ -7,17 +7,17 @@ package org.eclipse.pass.manuscript;
  * @author Maggie Olaya
  */
 
-import java.io.FileWriter;
+/*import java.io.FileWriter;
 import java.io.IOException;
 import javax.json.Json;
 import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
+import javax.json.JsonObjectBuilder;*/
 
 
 public class LookupServiceHttp {
 
   /**
-   * Lookup service.
+   * Lookup service method.
    */
   public void lookupServiceHandler(Unpaywall unpaywall) {
     //gets doi
@@ -27,15 +27,14 @@ public class LookupServiceHttp {
   }
 
   /**
-  * creates json file with manuscript info.
-  */
+   * creates json file with manuscript info.
+   */  
   private void createJson(Manuscript[] manuscripts) {
     //Creating a JSONObject object
     for (int i = 0; i < manuscripts.length; i++) {
       JsonObject json = Json.createObjectBuilder().build();
     }
     JsonObject json = Json.createObjectBuilder().build();
-   
     //TODO: implement
   }
 }
