@@ -8,10 +8,10 @@ package org.eclipse.pass.manuscript;
  */
 
 /*import java.io.FileWriter;
-import java.io.IOException;
+import java.io.IOException;*/
 import javax.json.Json;
 import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;*/
+import javax.json.JsonObjectBuilder;
 
 
 public class LookupServiceHttp {
