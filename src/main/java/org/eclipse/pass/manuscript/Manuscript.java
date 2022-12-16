@@ -44,6 +44,4 @@ public class Manuscript {
   public String getName() {
     return name;
   }
-
-  //need setters?
 }
