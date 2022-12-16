@@ -6,7 +6,6 @@ package org.eclipse.pass.manuscript;
  * @author Maggie Olaya
  */
 
-
 public class Unpaywall {
   /**
    * Unpaywall lookup service.
