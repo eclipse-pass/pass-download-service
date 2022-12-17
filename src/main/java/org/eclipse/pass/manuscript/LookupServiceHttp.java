@@ -8,32 +8,32 @@ package org.eclipse.pass.manuscript;
  */
 
 /*import java.io.FileWriter;
-import java.io.IOException;*/
+import java.io.IOException;
+import javax.json.JsonObjectBuilder;*/
 import javax.json.Json;
 import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
 
 public class LookupServiceHttp {
 
-  /**
-   * Lookup service method.
-   */
-  public void lookupServiceHandler(Unpaywall unpaywall) {
-    //gets doi
-    String doi = "";
+    /**
+     * Lookup service method.
+     */
+    public void lookupServiceHandler(Unpaywall unpaywall) {
+      //gets doi
+      String doi = "";
 
-    createJson(unpaywall.lookup(doi));
-  }
-
-  /**
-   * creates json file with manuscript info.
-   */  
-  private void createJson(Manuscript[] manuscripts) {
-    //Creating a JSONObject object
-    for (int i = 0; i < manuscripts.length; i++) {
-      JsonObject json = Json.createObjectBuilder().build();
+      createJson(unpaywall.lookup(doi));
     }
-    JsonObject json = Json.createObjectBuilder().build();
-    //TODO: implement
-  }
+
+    /**
+     * creates json file with manuscript info.
+     */  
+    private void createJson(Manuscript[] manuscripts) {
+      //Creating a JSONObject object
+      for (int i = 0; i < manuscripts.length; i++) {
+        JsonObject json = Json.createObjectBuilder().build();
+      }
+      JsonObject json = Json.createObjectBuilder().build();
+      //TODO: implement
+    }
 }

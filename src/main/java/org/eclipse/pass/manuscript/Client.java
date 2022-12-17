@@ -7,10 +7,10 @@ package org.eclipse.pass.manuscript;
  */
 public class Client {
 
-  /**
-   * postBinary.
-   */
-  public void postBinary() {
-    //TODO: implement
-  }
+    /**
+     * postBinary.
+     */
+    public void postBinary() {
+      //TODO: implement
+    }
 } 
