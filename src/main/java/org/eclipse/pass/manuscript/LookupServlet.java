@@ -20,15 +20,15 @@ public class LookupServlet extends HttpServlet {
     * Lookup service.
     */
     public void lookupService() {
-      //sets up http, fedora
-      Unpaywall unpaywall = new Unpaywall();
-      LookupServiceHttp lookupService = new LookupServiceHttp();
+        //sets up http, fedora
+        Unpaywall unpaywall = new Unpaywall();
+        LookupServiceHttp lookupService = new LookupServiceHttp();
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //TODO: implement  
+          //TODO: implement
     }
 
     @Override
