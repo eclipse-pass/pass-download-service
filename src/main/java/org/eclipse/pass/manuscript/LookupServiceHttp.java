@@ -19,21 +19,21 @@ public class LookupServiceHttp {
      * Lookup service method.
      */
     public void lookupServiceHandler(Unpaywall unpaywall) {
-      //gets doi
-      String doi = "";
+        //gets doi
+        String doi = "";
 
-      createJson(unpaywall.lookup(doi));
+        createJson(unpaywall.lookup(doi));
     }
 
     /**
      * creates json file with manuscript info.
      */  
     private void createJson(Manuscript[] manuscripts) {
-      //Creating a JSONObject object
-      for (int i = 0; i < manuscripts.length; i++) {
+        //Creating a JSONObject object
+        for (int i = 0; i < manuscripts.length; i++) {
+          JsonObject json = Json.createObjectBuilder().build();
+        }
         JsonObject json = Json.createObjectBuilder().build();
-      }
-      JsonObject json = Json.createObjectBuilder().build();
-      //TODO: implement
+        //TODO: implement
     }
 }
