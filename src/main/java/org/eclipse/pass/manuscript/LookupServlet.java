@@ -16,27 +16,24 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/lookupservice")
 public class LookupServlet extends HttpServlet {
 
-  /**
-  * Lookup service.
-  */
-  public void lookupService() {
-    //sets up http, fedora
-    Unpaywall unpaywall = new Unpaywall();
-    LookupServiceHttp lookupService = new LookupServiceHttp();
-  }
+    /**
+    * Lookup service.
+    */
+    public void lookupService() {
+      //sets up http, fedora
+      Unpaywall unpaywall = new Unpaywall();
+      LookupServiceHttp lookupService = new LookupServiceHttp();
+    }
 
-  @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
-          throws ServletException, IOException {
-      //TODO: implement
-          
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        //TODO: implement  
+    }
 
-  }
-
-  @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
-          throws ServletException, IOException {
-      //TODO: implement
-
-  }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        //TODO: implement
+    }
 }
