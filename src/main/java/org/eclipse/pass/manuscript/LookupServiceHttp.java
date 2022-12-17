@@ -27,11 +27,11 @@ public class LookupServiceHttp {
 
     /**
      * creates json file with manuscript info.
-     */  
+     */
     private void createJson(Manuscript[] manuscripts) {
         //Creating a JSONObject object
         for (int i = 0; i < manuscripts.length; i++) {
-          JsonObject json = Json.createObjectBuilder().build();
+            JsonObject json = Json.createObjectBuilder().build();
         }
         JsonObject json = Json.createObjectBuilder().build();
         //TODO: implement
