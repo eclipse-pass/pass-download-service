@@ -18,30 +18,30 @@ public class Manuscript {
    * 
    */
     public void manuscript(String location, String repo, String type, String source, String name) {
-      this.location = location;
-      repo = repoInstitution;
-      this.type = type;
-      this.source = source;
-      this.name = name;
+        this.location = location;
+        repo = repoInstitution;
+        this.type = type;
+        this.source = source;
+        this.name = name;
     }
 
     public String getLocation() {
-      return location;
+        return location;
     }
 
     public String getRepoInstitution() {
-      return repoInstitution;
+        return repoInstitution;
     }
 
     public String getType() {
-      return type;
+        return type;
     }
 
     public String getSource() {
-      return source;
+        return source;
     }
   
     public String getName() {
-      return name;
+        return name;
     }
 }
