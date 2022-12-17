@@ -40,7 +40,7 @@ public class Manuscript {
     public String getSource() {
         return source;
     }
-  
+
     public String getName() {
         return name;
     }
